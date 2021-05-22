@@ -1,6 +1,6 @@
 <template>
   <div class="home container">
-    <Items @add-count="addCount" :items="items" />
+    <Items @add-count="addCount" @subtr-count="subtrCount" :items="items" />
   </div>
 </template>
 
@@ -20,8 +20,10 @@ export default {
   },
   methods: {
     addCount(id) {
-      this.items = this.items.map((item) => item.id === id ? {...item, count: count++} : item)
-      console.log(this.items[id].count)
+      this.items[id].count++
+    },
+    subtrCount(id) {
+      this.items[id].count--
     }
   },
   created() {
