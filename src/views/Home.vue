@@ -20,10 +20,10 @@ export default {
   },
   methods: {
     addCount(id) {
-      this.items[id].count++
+      this.items[id].count += this.items[id].config.increment;
     },
     subtrCount(id) {
-      this.items[id].count--
+      this.items[id].count -= this.items[id].config.increment;
     }
   },
   created() {
@@ -31,19 +31,28 @@ export default {
       {
         id: 0,
         text: 'An item',
-        config: {},
-        count: 2
+        config: {
+          increment: 1,
+          reminder: false
+        },
+        count: 2,
       },
       {
         id: 1,
         text: 'Another item',
-        config: {},
+        config: {
+          increment: 2,
+          reminder: false
+        },
         count: 5
       },
       {
         id: 2,
         text: 'Different item',
-        config: {},
+        config: {
+          increment: 3,
+          reminder: true
+        },
         count: 73
       }
     ]
