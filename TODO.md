@@ -1,6 +1,6 @@
 ## must do
 - [x] finish ui
-- [x] add increment - decrement functionality
+- [x] add increment - decrement functionality -- **BROKEN WITH RANDOM ID ASSIGNMENT**
 - [x] add settings modal
 - [ ] add settings modal functionality
 - [x] add add new item modal
