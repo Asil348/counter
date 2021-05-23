@@ -7,7 +7,8 @@ ever forgot how many times you used your reuseable shawing razor or how many tim
 - & many features are yet to come!
 ---
  1. install required packages with `npm install`
- 2. run development build with `npm run serve`
- 3. build app with `npm run build`
+ 2. initialize database with `npm run database`
+ 3. run development build with `npm run serve`
+ 4. build app with `npm run build`
 
 > built with vue

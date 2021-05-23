@@ -6,8 +6,9 @@
 - [x] add add new item modal
 - [x] add add new item functionality
 - [ ] add reminder functionality
-- [ ] add database
-- [ ] add database functionality
+- [x] add database
+- [x] add database functionality
+- [ ] make ids random
 
 ## optional
 - [ ] (?) add new item saved animation

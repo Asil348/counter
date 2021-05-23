@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": 0,
+      "text": "An item",
+      "config": {
+        "increment": 1,
+        "reminder": false
+      },
+      "count": 5
+    },
+    {
+      "id": 1,
+      "text": "Another item",
+      "config": {
+        "increment": 2,
+        "reminder": false
+      },
+      "count": 50
+    },
+    {
+      "id": 2,
+      "text": "Different item",
+      "config": {
+        "increment": 3,
+        "reminder": true
+      },
+      "count": 73
+    },
+    {
+      "id": 3,
+      "text": "asdasfe",
+      "config": {
+        "increment": 1,
+        "reminder": false
+      },
+      "count": -2
+    }
+  ]
+}

@@ -22,48 +22,74 @@ export default {
     }
   },
   methods: {
-    addCount(id) {
-      this.items[id].count += this.items[id].config.increment;
+    async addCount(id) {
+
+      const req = await this.fetchItem(id)
+      const incrd = req.count += req.config.increment
+
+      const res = await fetch(`api/items/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ count: incrd })
+      });
+
+      const data = await res.json()
+
+      this.items[id].count = data.count;
     },
 
-    subtrCount(id) {
-      this.items[id].count -= this.items[id].config.increment;
+    async subtrCount(id) {
+      
+      const req = await this.fetchItem(id)
+      const decrd = req.count -= req.config.increment
+
+      const res = await fetch(`api/items/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ count: decrd })
+      });
+
+      const data = await res.json()
+
+      this.items[id].count = data.count;
     },
 
-    addItem(newItem) {
-      this.items = [...this.items, newItem]
-    }
+    async addItem(newItem) {
+      const res = await fetch('api/items', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(newItem)
+      });
+
+      const data = await res.json()
+
+      this.items = [...this.items, data]
+    },
+
+    async fetchItems() {
+      const res = await fetch('api/items');
+
+      const data = await res.json();
+
+      return data;
+    },
+    async fetchItem(id) {
+      const res = await fetch(`api/items/${id}`);
+
+      const data = await res.json();
+
+      return data;
+    },
+
   },
-  created() {
-    this.items = [
-      {
-        id: 0,
-        text: 'An item',
-        config: {
-          increment: 1,
-          reminder: false
-        },
-        count: 2,
-      },
-      {
-        id: 1,
-        text: 'Another item',
-        config: {
-          increment: 2,
-          reminder: false
-        },
-        count: 5
-      },
-      {
-        id: 2,
-        text: 'Different item',
-        config: {
-          increment: 3,
-          reminder: true
-        },
-        count: 73
-      }
-    ]
+  async created() {
+    this.items = await this.fetchItems();
   }
 }
 </script>
