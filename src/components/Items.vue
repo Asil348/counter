@@ -5,16 +5,16 @@
 </template>
 
 <script>
-import Item from './Item'
+    import Item from './Item'
 
-export default {
-    name: 'Items',
-    props: {
-        items: Array
-    },
-    components: {
-        Item
-    },
-    emits: ['add-count', 'subtr-count']
-}
+    export default {
+        name: 'Items',
+        props: {
+            items: Array
+        },
+        components: {
+            Item
+        },
+        emits: ['add-count', 'subtr-count']
+    }
 </script>
