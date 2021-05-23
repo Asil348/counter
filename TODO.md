@@ -5,6 +5,7 @@
 - [ ] add settings modal functionality
 - [x] add add new item modal
 - [x] add add new item functionality
+- [ ] add reminder functionality
 - [ ] add database
 - [ ] add database functionality
 
