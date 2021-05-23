@@ -1,5 +1,6 @@
 <template>
   <div class="home container">
+      <AddItem :items="items" @add-item="addItem"/>
     <Items @add-count="addCount" @subtr-count="subtrCount" :items="items" />
   </div>
 </template>
@@ -7,11 +8,13 @@
 <script>
 // @ is an alias to /src
 import Items from '@/components/Items.vue'
+import AddItem from '@/components/AddItem.vue'
 
 export default {
   name: 'Home',
   components: {
-    Items
+    Items,
+    AddItem
   },
   data() {
     return {
@@ -22,8 +25,13 @@ export default {
     addCount(id) {
       this.items[id].count += this.items[id].config.increment;
     },
+
     subtrCount(id) {
       this.items[id].count -= this.items[id].config.increment;
+    },
+
+    addItem(newItem) {
+      this.items = [...this.items, newItem]
     }
   },
   created() {
