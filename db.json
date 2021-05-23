@@ -7,7 +7,7 @@
         "increment": 1,
         "reminder": false
       },
-      "count": 5
+      "count": 2
     },
     {
       "id": 1,
@@ -16,7 +16,7 @@
         "increment": 2,
         "reminder": false
       },
-      "count": 50
+      "count": 48
     },
     {
       "id": 2,
@@ -26,15 +26,6 @@
         "reminder": true
       },
       "count": 73
-    },
-    {
-      "id": 3,
-      "text": "asdasfe",
-      "config": {
-        "increment": 1,
-        "reminder": false
-      },
-      "count": -2
     }
   ]
 }
