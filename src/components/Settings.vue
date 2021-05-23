@@ -14,18 +14,19 @@
           </div>
           <form>
             <div class="modal-body">
-              <div class="row mb-3">
-                <label :for="'inputName' + item.id" class="col-sm-2 col-form-label">Name</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" :id="'inputName' + item.id" :value='item.text'>
-                </div>
+              <div class="mb-3 form-floating">
+                <input type="text" class="form-control" :id="'inputName' + item.id" :value='item.text'>
+                <label :for="'inputName' + item.id">Name</label>
               </div>
-              <div class="row mb-3">
-                <label :for="'inputIncrementBy' + item.id" class="col-sm-3 col-form-label">Increment By</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" :id="'inputIncrementBy' + item.id"
-                    :value='item.config.increment'>
-                </div>
+              <div class="mb-3 form-floating">
+                <input type="text" class="form-control" :id="'inputCount' + item.id"
+                  :value='item.count'>
+                <label :for="'inputCount' + item.id">Count</label>
+              </div>
+              <div class="mb-3 form-floating">
+                <input type="text" class="form-control" :id="'inputIncrementBy' + item.id"
+                  :value='item.config.increment'>
+                <label :for="'inputIncrementBy' + item.id">Increment By</label>
               </div>
               <div class="row mb-3">
                 <div class="col-sm-10">
@@ -33,10 +34,12 @@
                     <label class="form-check-label" :for="'gridCheck1' + item.id">
                       Reminder
                     </label>
-                    <input class="form-check-input" type="checkbox" :id="'gridCheck1' + item.id" :checked="item.config.reminder">
+                    <input class="form-check-input" type="checkbox" :id="'gridCheck1' + item.id"
+                      :checked="item.config.reminder">
                   </div>
                 </div>
               </div>
+              <button type="button" class="btn btn-danger">Delete</button>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
