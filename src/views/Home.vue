@@ -24,6 +24,8 @@ export default {
   methods: {
     async addCount(id) {
 
+      const toIncr = await this.getItemById(id)
+
       const req = await this.fetchItem(id)
       const incrd = req.count += req.config.increment
 
@@ -86,7 +88,15 @@ export default {
 
       return data;
     },
+    async getItemById(id) {
+      const fetchedItems = await this.fetchItems()
 
+      for (var i = 0; i < await fetchedItems.length; i++) {
+        if (id === await fetchedItems[i].id) {
+          return fetchedItems[i]
+        }
+      }
+    }
   },
   async created() {
     this.items = await this.fetchItems();
