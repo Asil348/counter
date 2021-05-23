@@ -40,6 +40,8 @@ export default {
       const data = await res.json()
 
       this.items[id].count = data.count;
+
+      
     },
 
     async subtrCount(id) {
