@@ -24,6 +24,8 @@ export default {
   methods: {
     async addCount(id) {
 
+      const toIncr = await this.getItemIndexById(id)
+
       const req = await this.fetchItem(id)
       const incrd = req.count += req.config.increment
 
@@ -37,11 +39,14 @@ export default {
 
       const data = await res.json()
 
-      this.items[id].count = data.count;
+      this.items[toIncr].count = data.count;
+      
     },
 
     async subtrCount(id) {
       
+      const toDecr = await this.getItemIndexById(id)
+
       const req = await this.fetchItem(id)
       const decrd = req.count -= req.config.increment
 
@@ -55,7 +60,7 @@ export default {
 
       const data = await res.json()
 
-      this.items[id].count = data.count;
+      this.items[toDecr].count = data.count;
     },
 
     async addItem(newItem) {
@@ -86,7 +91,15 @@ export default {
 
       return data;
     },
+    async getItemIndexById(id) {
+      const fetchedItems = await this.fetchItems()
 
+      for (var i = 0; i < await fetchedItems.length; i++) {
+        if (id === await fetchedItems[i].id) {
+          return i
+        }
+      }
+    }
   },
   async created() {
     this.items = await this.fetchItems();
