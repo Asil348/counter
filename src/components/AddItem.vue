@@ -21,11 +21,11 @@
                 <label for="inputName">Name</label>
               </div>
               <div class="mb-3 form-floating">
-                <input type="text" class="form-control" id="inputCount" placeholder="Count" v-model="count" required>
+                <input type="number" class="form-control" id="inputCount" placeholder="Count" v-model="count" required>
                 <label for="inputCount">Count</label>
               </div>
               <div class="mb-3 form-floating">
-                <input type="text" class="form-control" id="inputIncrementBy" placeholder="Increment By"
+                <input type="number" class="form-control" id="inputIncrementBy" placeholder="Increment By"
                   v-model="config.increment" required>
                 <label for="inputIncrementBy">Increment By</label>
               </div>
@@ -79,10 +79,10 @@
         const newItem = {
           text: this.text,
           config: {
-            increment: this.config.increment,
+            increment: parseInt(this.config.increment),
             reminder: this.config.reminder
           },
-          count: this.count
+          count: parseInt(this.count)
         }
 
         this.$emit('add-item', newItem);
