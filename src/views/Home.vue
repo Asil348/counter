@@ -1,7 +1,7 @@
 <template>
   <div class="home container">
       <AddItem :items="items" @add-item="addItem"/>
-    <Items @add-count="addCount" @subtr-count="subtrCount" :items="items" />
+    <Items @add-count="addCount" @subtr-count="subtrCount" @update-item="updateItem" :items="items" />
   </div>
 </template>
 
@@ -22,6 +22,33 @@ export default {
     }
   },
   methods: {
+    async updateItem(updItem) {
+      const toUpdatedIndex = await this.getItemIndexById(updItem.id);
+
+      const res = await fetch(`api/items/${toUpdatedIndex}`, {
+
+        // TODO: use PUT instead of PATCH //
+        method: 'PATCH',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ 
+          text: updItem.text,
+          config: {
+            increment: updItem.config.increment,
+            reminder: updItem.config.reminder
+          },
+          count: updItem.count
+         })
+      })
+
+      const data = await res.json();
+
+      this.items[toUpdatedIndex].text = data.text;
+      this.items[toUpdatedIndex].config.increment = data.config.increment;
+      this.items[toUpdatedIndex].config.reminder = data.config.reminder;
+      this.items[toUpdatedIndex].count = data.count;
+    },
     async addCount(id) {
 
       const toIncr = await this.getItemIndexById(id)
@@ -101,6 +128,7 @@ export default {
       }
     }
   },
+  emits: ['update-item'],
   async created() {
     this.items = await this.fetchItems();
   }

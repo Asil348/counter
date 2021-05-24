@@ -2,9 +2,9 @@
   <div class="input-group item">
     <span class="input-group-text"><strong>{{ item.count }}</strong></span>
     <button @click="$emit('add-count', item.id)" class="btn btn-outline-success" type="button"><i class="bi bi-plus-lg"></i></button>
-    <input type="text" class="form-control" :value="item.text">
+    <input type="text" class="form-control name-input" :value="item.text" disabled>
     <button @click="$emit('subtr-count', item.id)" class="btn btn-outline-danger" type="button"><i class="bi bi-dash-lg"></i></button>
-    <Settings :item="sItem" />
+    <Settings :item="sItem" @update-item="updateItem" />
   </div>
 </template>
 
@@ -21,9 +21,14 @@
         sItem: this.item
       }
     },
+    methods: {
+      updateItem(updItem) {
+        this.$emit('update-item', updItem)
+      }
+    },
     components: {
       Settings
-    }
+    },
   }
 </script>
 
@@ -32,5 +37,8 @@
   .item {
     width: 75vw;
     margin: 3em auto;
+  }
+  .name-input {
+    background: #fff;
   }
 </style>
