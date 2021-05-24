@@ -76,10 +76,7 @@
       onSubmit(e) {
         e.preventDefault();
 
-        var newID = this.items.length;
-
         const newItem = {
-          id: newID,
           text: this.text,
           config: {
             increment: this.config.increment,
