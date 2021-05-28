@@ -90,8 +90,6 @@
           count: parseInt(this.count)
         }
 
-        // ###### FIX: COUNT NOT UPDATING HERE FROM ITEMS WHEN CHANGED VIA SETTINGS ######
-
         this.text = updItem.text
         this.config.increment = updItem.config.increment
         this.config.reminder = updItem.config.reminder
