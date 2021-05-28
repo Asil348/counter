@@ -9,6 +9,7 @@
 - [x] add database
 - [x] add database functionality
 - [ ] make ids random
+- [ ] create individual databases for users
 
 ## optional
 - [ ] (?) add new item saved animation
