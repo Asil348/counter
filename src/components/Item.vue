@@ -41,4 +41,11 @@
   .name-input {
     background: #fff;
   }
+  .input-group-text {
+    min-width: 53.61px;
+  }
+  .input-group-text strong {
+    text-align: center;
+    margin: 0 auto;
+  }
 </style>
