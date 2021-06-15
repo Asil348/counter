@@ -1,5 +1,5 @@
 # counter
-ever forgot how many times you used your reuseable shawing razor or how many times you watered your plant? well, counter to the rescue!
+ever forgot how many times you used your reuseable shaving razor or how many times you watered your plant? well, counter to the rescue!
 
 - count and *de*count stuff easily with a single click
 - choose how much should it increment or decrement with a single click
